@@ -95,8 +95,6 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -241,6 +239,7 @@ GEM
     zeitwerk (2.6.11)
 
 PLATFORMS
+  arm64-darwin-21
   arm64-darwin-22
 
 DEPENDENCIES
@@ -248,7 +247,6 @@ DEPENDENCIES
   capybara
   debug
   faraday
-  figaro
   importmap-rails
   jbuilder
   launchy
@@ -265,7 +263,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.12
