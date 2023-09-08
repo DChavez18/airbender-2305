@@ -1,16 +1,1 @@
 <h1>Total Members: <%= @members.count %> Members</h1>
-<% if @members.any? %>
-  <% @members.each do |member| %>
-    <ul class='member'>
-      <li class='name'>Name: <%= member.name %></li>
-      <% if member.photo_url.present? %>
-        <li class='photo'><%= image_tag(member.photo_url) %></li>
-      <% end %>
-      <li class='allies'>Allies: <%= member.allies.present? ? member.allies : 'None' %></li>
-      <li class='enemies'>Enemies: <%= member.enemies.present? ? member.enemies : 'None' %></li>
-      <li class='affiliation'>Affiliation: <%= member.affiliation.present? ? member.affiliation : 'None' %></li>
-    </ul>
-  <% end %>
-<% else %>
-  <p>No members found in the Fire Nation.</p>
-<% end %>
