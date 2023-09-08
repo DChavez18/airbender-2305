@@ -23,7 +23,22 @@ RSpec.describe "Welcome Page" do
       select "Fire Nation", from: "nation"
       click_button "Search For Members"
 
-      expect(page).to have_content("Total Members:")
+      expect(page).to have_content("Total Members: 20")
+    end
+
+    it "displays a list of the first 25 members of the Fire Nation and for each shows their name, photo, list of allies and enemies and affiliations" do
+      visit "/"
+
+      select "Fire Nation", from: "nation"
+      click_button "Search For Members"
+
+      with(first('.member')) do
+        expect(page).to have_content(member.name)
+        expect(page).to have_content(member.photo)
+        expect(page).to have_content(member.allies)
+        expect(page).to have_content(member.enemies)
+        expect(page).to have_content(member.affiliation)
+      end
     end
   end
 end
