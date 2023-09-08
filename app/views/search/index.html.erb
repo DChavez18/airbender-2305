@@ -1,13 +1,13 @@
 <h1>Total Members: <%= @members.count %> Members</h1>
 
-<% @members.first(25).each do |member| %>
+<% @members.each do |member| %>
   <ul class='member'>
     <li class='name'>Name: <%= member.name %></li>
-    <% if member.photoUrl.present? %>
-      <li class='photo'><%= image_tag(member.photoUrl) %></li>
+    <% if member.photoUrl %>
+    <li class='photo'><%= image_tag(member.photoUrl) %></li>
     <% end %>
-    <li class='allies'>Allies: <%= member.allies.present? ? member.allies : 'None' %></li>
-    <li class='enemies'>Enemies: <%= member.enemies.present? ? member.enemies : 'None' %></li>
-    <li class='affiliation'>Affiliation: <%= member.affiliation.present? ? member.affiliation : 'None' %></li>
+    <li class='allies'>Allies: <%= member.allies %></li>
+    <li class='enemies'>Enemies: <%= member.enemies %></li>
+    <li class='affiliation'>Affiliation: <%= member.affiliation %></li>
   </ul>
 <% end %>

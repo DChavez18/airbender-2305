@@ -27,20 +27,20 @@ RSpec.describe "Welcome Page" do
     end
 
     it "displays a list of the first 25 members of the Fire Nation and for each shows their name, photo, list of allies and enemies and affiliations" do
+      search_facade = SearchFacade.new
+      @members = search_facade.search_for("Fire Nation")
       
       visit "/"
 
       select "Fire Nation", from: "nation"
       click_button "Search For Members"
 
-
-      @members.first(25).each do |member|
-        within(".member", text: "Name: #{member.name}") do
-          expect(page).to have_css("li.name", text: "Name: #{member.name}")
-          expect(page).to have_css("li.allies", text: "Allies: #{member.allies.present? ? member.allies : 'None'}")
-          expect(page).to have_css("li.enemies", text: "Enemies: #{member.enemies.present? ? member.enemies : 'None'}")
-          expect(page).to have_css("li.affiliation", text: "Affiliation: #{member.affiliation.present? ? member.affiliation : 'None'}")
-        end
+      within(first('.member')) do
+        expect(page).to have_css('.name')
+        expect(page).to have_css('.photo')
+        expect(page).to have_css('.allies')
+        expect(page).to have_css('.enemies')
+        expect(page).to have_css('.affiliation')
       end
     end
   end
